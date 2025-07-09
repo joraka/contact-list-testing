@@ -41,7 +41,9 @@
 * TC_4.1 Log out
 
 ### TS_5 Contacts Page
-
+* TC_5.1 Page loads
+* TC_5.2 Contacts list is displayed
+* TC_5.3 Contact details is displayed
 
 ### TS_6 Add contact
 * TC_5.1 Add contact with valid data, first name and last name only
@@ -49,21 +51,44 @@
 * TC_5.3 Add contact with invalid data
     * TC_5.3.1 Add contact with empty first name
     * TC_5.3.2 Add contact with first name longer than allowed
-    * TC_5.3.3 Add contact with empty last name
-    * TC_5.3.4 Add contact with last name longer than allowed
-    * TC_5.3.6 Add contact with invalid date of birth format
-    * TC_3.2.2 Add contact with email longer than allowed
-    * TC_3.2.3 Add contact with invalid email format 
-    * TC_3.2.3 Add contact with invalid phone longer than allowed
-    * TC_3.2.3 Add contact with invalid street address 1 longer than allowed
-    * TC_3.2.3 Add contact with post code with 
-    * TC_3.2.3 Add contact with post code format
-    * TC_3.2.3 Add contact with invalid post code
-    * TC_3.2.3 Add contact with invalid country
+    * TC_5.3.3 Add contact with first name and numbers
+    * TC_5.3.4 Add contact with empty last name
+    * TC_5.3.5 Add contact with last name longer than allowed
+    * TC_5.3.6 Add contact with last name andand numbers
+    * TC_5.3.7 Add contact with invalid date of birth format
+    * TC_5.3.8 Add contact with email longer than allowed
+    * TC_5.3.9 Add contact with invalid email format 
+    * TC_5.3.10 Add contact with phone number longer than allowed
+    * TC_5.3.11 Add contact with street address 1 longer than allowed
+    * TC_5.3.11 Add contact with street address 2 longer than allowed
+    * TC_5.3.12 Add contact with state longer than allowed
+    * TC_5.3.12 Add contact with city longer than allowed
+    * TC_5.3.12 Add contact with invalid post code
+    * TC_5.3.13 Add contact with country longer than allowed
 
 ### TS_7 Edit Contact
+* TC_7.1 Edit contact with valid data, first name and last name only
+* TC_7.2 Edit contact with valid data with all fields
+* TC_7.3 Edit contact with invalid data
+    * TC_7.3.1 Edit contact with empty first name
+    * TC_7.3.2 Edit contact with first name longer than allowed
+    * TC_7.3.3 Edit contact with first name and numbers
+    * TC_7.3.4 Edit contact with empty last name
+    * TC_7.3.5 Edit contact with last name longer than allowed
+    * TC_7.3.6 Edit contact with last name andand numbers
+    * TC_7.3.7 Edit contact with invalid date of birth format
+    * TC_7.3.8 Edit contact with email longer than allowed
+    * TC_7.3.9 Edit contact with invalid email format 
+    * TC_7.3.10 Edit contact with phone number longer than allowed
+    * TC_7.3.11 Edit contact with street address 1 longer than allowed
+    * TC_7.3.11 Edit contact with street address 2 longer than allowed
+    * TC_7.3.12 Edit contact with state longer than allowed
+    * TC_7.3.12 Edit contact with city longer than allowed
+    * TC_7.3.12 Edit contact with invalid post code
+    * TC_7.3.13 Edit contact with country longer than allowed
 
 ### TS_8 Delete Contact
+* TC_8.1 Delete contact
 
 ### TS_9 Edge cases
 * add contact page shouldnt be displayed
