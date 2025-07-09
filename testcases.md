@@ -1,32 +1,69 @@
-### TS01 Home Page
-* TC01.1 Page loads  
-    * TC01.1.1 Header is visible  
-    * TC01.1.2 Login forms are visible
-    * TC01.1.3 Signup button is visible
-    * TC01.1.3 Copyright footer is visible
+### TS_1 Home Page
+* TC_1.1 Page loads  
+    * TC_1.1.1 Page loads in less than 3 seconds
+    * TC_1.1.2 Header is visible  
+    * TC_1.1.3 Login forms are visible
+    * TC_1.1.4 Signup button is visible
+    * TC_1.1.5 Copyright footer is visible
 
-### TS03 Register Page
-* TC03.1 Register with valid data  
-* TC03.2 Register with invalid data  
-    * TC03.2.1 Register with with invalid name  
-        * TC03.2.1.x Register with with name too long  
-        * TC03.2.1.x Register with with empty name  
-    * TC03.2.2 Register with with invalid name  
-        * TC03.2.2.x Register with with last name too long  
-        * TC03.2.2.x Register with with empty last name  
-    * TC03.2.3 Register with invalid email  
-        * TC03.2.3.x Register with with empty email  
-        * TC03.2.3.x Register with with email too long  
-        * TC03.2.3.x Register with with invalid email format  
-    * TC03.2.4 Register with invalid email  
-        * TC03.2.4.x Register with with no password  
-        * TC03.2.4.x Register with with too long password  
-        * TC03.2.4.x Register with with invalid format  
+### TS_2 Register Page
+* TC_2.1 Register with valid data  
+* TC_2.2 Register with invalid data  
+    * TC_2.2.1 Register with invalid first name  
+        * TC_2.2.1.1 Register with empty first name  
+        * TC_2.2.1.2 Register with first name longer than allowed  
+    * TC_2.2.2 Register with invalid last name  
+        * TC_2.2.2.1 Register with empty last name  
+        * TC_2.2.2.2 Register with last name longer than allowed
+    * TC_2.2.3 Register with invalid email  
+        * TC_2.2.3.1 Register with empty email  
+        * TC_2.2.3.2 Register with email longer than allowed
+        * TC_2.2.3.3 Register with invalid email format  
+        * TC_2.2.3.4 Register with email that already exists 
+    * TC_2.2.4 Register with invalid password  
+        * TC_2.2.4.1 Register with no password  
+        * TC_2.2.4.2 Register with password shorter than allowed
+        * TC_2.2.4.3 Register with password longer than allowed
 
 
-### TS02 Login Page
-* TC02.1 Login with valid data
-* TC02.1 Login with invalid data
-    * TC02.1 
+### TS_3 Login Page
+* TC_3.1 Login with valid data
+* TC_3.2 Login with invalid data
+    * TC_3.2.1 Login with empty email
+    * TC_3.2.2 Login with email longer than allowed
+    * TC_3.2.3 Login with invalid email format 
+    * TC_3.2.4 Login with incorrect email
+    * TC_3.2.5 Login with empty password
+    * TC_3.2.6 Login with password longer than allowed
+    * TC_3.2.7 Login with incorrect password
 
-### TS04 Logout
+### TS_4 Logout
+* TC_4.1 Log out
+
+### TS_5 Contacts Page
+
+
+### TS_6 Add contact
+* TC_5.1 Add contact with valid data, first name and last name only
+* TC_5.2 Add contact with valid data with all fields
+* TC_5.3 Add contact with invalid data
+    * TC_5.3.1 Add contact with empty first name
+    * TC_5.3.2 Add contact with first name longer than allowed
+    * TC_5.3.3 Add contact with empty last name
+    * TC_5.3.4 Add contact with last name longer than allowed
+    * TC_5.3.6 Add contact with invalid date of birth format
+    * TC_3.2.2 Add contact with email longer than allowed
+    * TC_3.2.3 Add contact with invalid email format 
+    * TC_3.2.3 Add contact with invalid phone longer than allowed
+    * TC_3.2.3 Add contact with invalid street address 1 longer than allowed
+    * TC_3.2.3 Add contact with post code with 
+    * TC_3.2.3 Add contact with post code format
+    * TC_3.2.3 Add contact with invalid post code
+    * TC_3.2.3 Add contact with invalid country
+
+### TS_7 Edit Contact
+
+### TS_8 Delete Contact
+
+### TS_9 Edge cases
+* add contact page shouldnt be displayed
