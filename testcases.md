@@ -1,20 +1,56 @@
 ### TS_1 Home Page
 * TC_1.1 Page loads  
-    * TC_1.1.1 Page loads in less than 3 seconds
+    * TC_1.1.1 Page loads in less than 3 seconds  
+    ```
+        Description:
+            Home page loads in less than 3 seconds
+
+        Steps:
+            1. Go to https://thinking-tester-contact-list.herokuapp.com/ 
+            2. Observe how long it takes to load the page
+
+        Expected Result:
+            Page load in less than 3 seconds
+    ```
     * TC_1.1.2 Header is visible  
+    ```
+        Description:
+            Home page shows header
+        Steps:
+            1. Go to https://thinking-tester-contact-list.herokuapp.com/ 
+            2. Observe the header
+        Expected Result:
+            Header shows text “Contact List App”
+    ```
     * TC_1.1.3 Login forms are visible
+    ```
+    ```
     * TC_1.1.4 Signup button is visible
+    ```
+    ```
     * TC_1.1.5 Copyright footer is visible
+    ```
+    ```
 
 ### TS_2 Register Page
 * TC_2.1 Register with valid data  
+    ```
+    ```
 * TC_2.2 Register with invalid data  
     * TC_2.2.1 Register with invalid first name  
         * TC_2.2.1.1 Register with empty first name  
+            ```
+            ```
         * TC_2.2.1.2 Register with first name longer than allowed  
+            ```
+            ```
     * TC_2.2.2 Register with invalid last name  
         * TC_2.2.2.1 Register with empty last name  
+            ```
+            ```
         * TC_2.2.2.2 Register with last name longer than allowed
+            ```
+            ```
     * TC_2.2.3 Register with invalid email  
         * TC_2.2.3.1 Register with empty email  
         * TC_2.2.3.2 Register with email longer than allowed
