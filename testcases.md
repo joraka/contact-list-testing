@@ -500,7 +500,7 @@
 * TC_4.1 Log out
     ```
     Description:
-        Must log out user
+        Logs out user
         
     Precondition:
         User must be registered and signed in
@@ -514,30 +514,742 @@
     ```
 
 ### TS_5 Contacts Page
-* TC_5.1 Page loads
-* TC_5.2 Contacts list is displayed
-* TC_5.3 Contact details is displayed
+* TC_5.1 Contacts list page loads
+    ```
+    Description:
+        Contact page loads
+        
+    Precondition:
+        Must be signed in as a user
 
+    Steps:
+        1. Go to https://thinking-tester-contact-list.herokuapp.com/contactList
+        2. Observe the page
+
+    Expected result:
+        1. Contact List header is visible
+        2. Table is visible
+
+    ```
+* TC_5.2 Contact details is displayed
+    ```
+    Description:
+        Contact details are displayed
+        
+    Precondition:
+        1. Must be signed in as a user
+        2. Must have at least one contact
+
+    Steps:
+        1. Go to https://thinking-tester-contact-list.herokuapp.com/contactList
+        2. Click on any contact
+        3. Observe result
+
+    Expected result:
+        1. First Name, Last Name, Date of Birth, Email, Phone, Street Address 1, Street Address 2, City, State or Province, Postal Code, Country fields are visible
+        2. "Edit Contact" button is visible
+        3. "Delete Contact" button is visible
+        3. "Return to Contact List" button is visible
+    ```
 ### TS_6 Add contact
 * TC_5.1 Add contact with valid data, first name and last name only
+    ```
+    Description:
+        Add contact with valid data, first name and last name only
+
+    Precondition:
+        1. Must be registered user
+        2. Must be logged in
+
+    Test Data:
+        First name: Bob
+        Last name: Marley
+
+    Steps:
+        1. Go to https://thinking-tester-contact-list.herokuapp.com/contactList
+        2. Click "Add a New Contact" button
+        3. Enter first name
+        4. Enter last name
+        5. Click submit button
+        6. Observe the contact list
+
+    Expected result:
+        New contact is added to the list
+    ```
 * TC_5.2 Add contact with valid data with all fields
+    ```
+    Description:
+        Add contact with valid data, first name and last name only
+
+    Precondition:
+        1. Must be registered user
+        2. Must be logged in
+
+    Test Data:
+        First name: Bob
+        Last name: Marley
+        Date of Birth: 1999-09-09
+        Email: bob@marley.com
+        Phone: 123123123
+        Street Address 1: Bob marley street 1
+        Street Address 2: 123
+        City: Los Angeles
+        State or Province: California
+        Postal Code: 123123
+        Country: United States
+
+    Steps:
+        1. Go to https://thinking-tester-contact-list.herokuapp.com/contactList
+        2. Click "Add a New Contact" button
+        3. Enter First name
+        4. Enter Last name
+        5. Enter Date of Birth
+        6. Enter Email
+        7. Enter Phone
+        8. Enter Street Address 1
+        9. Enter Street Address 2
+        10. Enter City
+        11. Enter State or Province
+        12. Enter Postal Code
+        13. Enter Country
+        14. Click submit button
+        15. Observe the contact list
+
+    Expected result:
+        New contact with the matching data is added to the list
+    ```
 * TC_5.3 Add contact with invalid data
     * TC_5.3.1 Add contact with empty first name
-    * TC_5.3.2 Add contact with first name longer than allowed
-    * TC_5.3.3 Add contact with first name and numbers
+    ```
+    Description:
+        Add contact with empty first name
+
+    Precondition:
+        1. Must be registered user
+        2. Must be logged in
+
+    Test Data:
+        Last name: Marley
+
+    Steps:
+        1. Go to https://thinking-tester-contact-list.herokuapp.com/contactList
+        2. Click "Add a New Contact" button
+        3. Enter Last name
+        4. Click submit button
+        5. Observe the contact list
+
+    Expected result:
+        First name validation input error visible
+    ```
+    * TC_5.3.2a Add contact with first name longer than allowed
+        ```
+        Description:
+            Add contact with first name longer than allowed
+
+        Precondition:
+            1. Must be registered user
+            2. Must be logged in
+
+        Test Data:
+            First name: Boboboboboboboboboboboboboboboboobb
+            Last name: Marley
+
+        Steps:
+            1. Go to https://thinking-tester-contact-list.herokuapp.com/contactList
+            2. Click "Add a New Contact" button
+            3. Enter First name
+            4. Enter Last name
+            5. Click submit button
+            6. Observe the contact list
+
+        Expected result:
+            First name validation input error visible
+        ```
+    * TC_5.3.2b Add contact with first name shorter than allowed
+        ```
+        Description:
+            Add contact with first name shorter than allowed
+
+        Precondition:
+            1. Must be registered user
+            2. Must be logged in
+
+        Test Data:
+            First name: B
+            Last name: Marley
+
+        Steps:
+            1. Go to https://thinking-tester-contact-list.herokuapp.com/contactList
+            2. Click "Add a New Contact" button
+            3. Enter First name
+            4. Enter Last name
+            5. Click submit button
+            6. Observe the contact list
+
+        Expected result:
+            First name validation input error visible
+        ```
+
+    * TC_5.3.3 Add contact with first name that has numbers
+        ```
+        Description:
+            Add contact with first name that has numbers
+
+        Precondition:
+            1. Must be registered user
+            2. Must be logged in
+
+        Test Data:
+            First name: Bob123
+            Last name: Marley
+
+        Steps:
+            1. Go to https://thinking-tester-contact-list.herokuapp.com/contactList
+            2. Click "Add a New Contact" button
+            3. Enter First name
+            4. Enter Last name
+            5. Click submit button
+            6. Observe the contact list
+
+        Expected result:
+            First name validation input error visible
+        ```
     * TC_5.3.4 Add contact with empty last name
-    * TC_5.3.5 Add contact with last name longer than allowed
-    * TC_5.3.6 Add contact with last name and numbers
+        ```
+        Description:
+            Add contact with empty last name
+
+        Precondition:
+            1. Must be registered user
+            2. Must be logged in
+
+        Test Data:
+            First name: Bob
+
+        Steps:
+            1. Go to https://thinking-tester-contact-list.herokuapp.com/contactList
+            2. Click "Add a New Contact" button
+            3. Enter First name
+            4. Click submit button
+            5. Observe the contact list
+
+        Expected result:
+            Last name validation input error visible
+        ```
+    * TC_5.3.5a Add contact with last name longer than allowed
+        ```
+        Description:
+            Add contact with last name longer than allowed
+
+        Precondition:
+            1. Must be registered user
+            2. Must be logged in
+
+        Test Data:
+            First name: Bob
+            Last name: Marleyleyleyleyleyleyleyleyleyleyley
+
+        Steps:
+            1. Go to https://thinking-tester-contact-list.herokuapp.com/contactList
+            2. Click "Add a New Contact" button
+            3. Enter First name
+            4. Enter Last name
+            5. Click submit button
+            6. Observe the contact list
+
+        Expected result:
+            Last name validation input error visible
+        ```
+    * TC_5.3.5b Add contact with last name shorter than allowed
+        ```
+        Description:
+            Add contact with last name shorter than allowed
+
+        Precondition:
+            1. Must be registered user
+            2. Must be logged in
+
+        Test Data:
+            First name: Bob
+            Last name: M
+
+        Steps:
+            1. Go to https://thinking-tester-contact-list.herokuapp.com/contactList
+            2. Click "Add a New Contact" button
+            3. Enter First name
+            4. Enter Last name
+            5. Click submit button
+            6. Observe the contact list
+
+        Expected result:
+            Last name validation input error visible
+        ```
+    * TC_5.3.6 Add contact with last name that has numbers in it
+        ```
+        Description:
+            Add contact with last name that has numbers in it
+
+        Precondition:
+            1. Must be registered user
+            2. Must be logged in
+
+        Test Data:
+            First name: Bob
+            Last name: Marley123
+
+        Steps:
+            1. Go to https://thinking-tester-contact-list.herokuapp.com/contactList
+            2. Click "Add a New Contact" button
+            3. Enter First name
+            4. Enter Last name
+            5. Click submit button
+            6. Observe the contact list
+
+        Expected result:
+            Last name validation input error visible
+        ```
     * TC_5.3.7 Add contact with invalid date of birth format
+        ```
+        Description:
+            Add contact with invalid date of birth format
+
+        Precondition:
+            1. Must be registered user
+            2. Must be logged in
+
+        Test Data:
+            First name: Bob
+            Last name: Marley
+            Date of Birth: 1111-20-20
+
+        Steps:
+            1. Go to https://thinking-tester-contact-list.herokuapp.com/contactList
+            2. Click "Add a New Contact" button
+            3. Enter First name
+            4. Enter Last name
+            5. Enter Date of Birth
+            6. Click submit button
+            7. Observe the contact list
+
+        Expected result:
+            Date of birth validation input error visible
+        ```
     * TC_5.3.8 Add contact with email longer than allowed
+        ```
+        Description:
+            Add contact with email longer than allowed
+
+        Precondition:
+            1. Must be registered user
+            2. Must be logged in
+
+        Test Data:
+            First name: Bob
+            Last name: Marley
+            Email: asdfasgasdasdgasdgdsggasgdsagasdgasdgadsgasdgasdgasdgasdgasgasdgasgdasdgasdgasdh@gmail.com
+
+        Steps:
+            1. Go to https://thinking-tester-contact-list.herokuapp.com/contactList
+            2. Click "Add a New Contact" button
+            3. Enter First name
+            4. Enter Last name
+            5. Enter Email
+            6. Click submit button
+            7. Observe the contact list
+
+        Expected result:
+            Email validation input error visible
+        ```
     * TC_5.3.9 Add contact with invalid email format 
-    * TC_5.3.10 Add contact with phone number longer than allowed
-    * TC_5.3.11 Add contact with street address 1 longer than allowed
-    * TC_5.3.12 Add contact with street address 2 longer than allowed
-    * TC_5.3.13 Add contact with state longer than allowed
-    * TC_5.3.14 Add contact with city longer than allowed
-    * TC_5.3.15 Add contact with invalid post code
-    * TC_5.3.16 Add contact with country longer than allowed
+        ```
+        Description:
+            Add contact with invalid email format
+
+        Precondition:
+            1. Must be registered user
+            2. Must be logged in
+
+        Test Data:
+            First name: Bob
+            Last name: Marley
+            Email: bob.marley.com
+
+        Steps:
+            1. Go to https://thinking-tester-contact-list.herokuapp.com/contactList
+            2. Click "Add a New Contact" button
+            3. Enter First name
+            4. Enter Last name
+            5. Enter Email
+            6. Click submit button
+            7. Observe the contact list
+
+        Expected result:
+            Email validation input error visible
+        ```
+    * TC_5.3.10a Add contact with phone number longer than allowed
+        ```
+        Description:
+            Add contact with phone number longer than allowed
+
+        Precondition:
+            1. Must be registered user
+            2. Must be logged in
+
+        Test Data:
+            First name: Bob
+            Last name: Marley
+            Phone: 12312312312123123123123132
+
+        Steps:
+            1. Go to https://thinking-tester-contact-list.herokuapp.com/contactList
+            2. Click "Add a New Contact" button
+            3. Enter First name
+            4. Enter Last name
+            5. Enter Phone
+            6. Click submit button
+            7. Observe the contact list
+
+        Expected result:
+            Phone validation input error visible
+        ```
+    * TC_5.3.10b Add contact with phone number shorter than allowed
+        ```
+        Description:
+            Add contact with phone number shorter than allowed
+
+        Precondition:
+            1. Must be registered user
+            2. Must be logged in
+
+        Test Data:
+            First name: Bob
+            Last name: Marley
+            Phone: 1
+
+        Steps:
+            1. Go to https://thinking-tester-contact-list.herokuapp.com/contactList
+            2. Click "Add a New Contact" button
+            3. Enter First name
+            4. Enter Last name
+            5. Enter Phone
+            6. Click submit button
+            7. Observe the contact list
+
+        Expected result:
+            Phone validation input error visible
+        ```
+    * TC_5.3.11 Add contact with phone number shorter than allowed
+        ```
+        Description:
+            Add contact with phone number shorter than allowed
+
+        Precondition:
+            1. Must be registered user
+            2. Must be logged in
+
+        Test Data:
+            First name: Bob
+            Last name: Marley
+            Phone: 1
+
+        Steps:
+            1. Go to https://thinking-tester-contact-list.herokuapp.com/contactList
+            2. Click "Add a New Contact" button
+            3. Enter First name
+            4. Enter Last name
+            5. Enter Phone
+            6. Click submit button
+            7. Observe the contact list
+
+        Expected result:
+            Phone validation input error visible
+        ```
+    * TC_5.3.12 Add contact with street address 1 longer than allowed
+        ```
+        Description:
+            Add contact with street address 1 longer than allowed
+
+        Precondition:
+            1. Must be registered user
+            2. Must be logged in
+
+        Test Data:
+            First name: Bob
+            Last name: Marley
+            Street Address 1: agsdgasdg jasdgju asbdgasd ibgasiugiua sibdugbi absidguiuais duigasui dgiuasd iugui 1
+
+        Steps:
+            1. Go to https://thinking-tester-contact-list.herokuapp.com/contactList
+            2. Click "Add a New Contact" button
+            3. Enter First name
+            4. Enter Last name
+            5. Enter Street Address 1
+            6. Click submit button
+            7. Observe the contact list
+
+        Expected result:
+            Street Address 1 validation input error visible
+        ```
+    * TC_5.3.12a Add contact with street address 1 shorter than allowed
+        ```
+        Description:
+            Add contact with street address 1 shorter than allowed
+
+        Precondition:
+            1. Must be registered user
+            2. Must be logged in
+
+        Test Data:
+            First name: Bob
+            Last name: Marley
+            Street Address 1: 1
+
+        Steps:
+            1. Go to https://thinking-tester-contact-list.herokuapp.com/contactList
+            2. Click "Add a New Contact" button
+            3. Enter First name
+            4. Enter Last name
+            5. Enter Street Address 1
+            6. Click submit button
+            7. Observe the contact list
+
+        Expected result:
+            Street Address 1 validation input error visible
+        ```
+    * TC_5.3.13 Add contact with street address 2 longer than allowed
+        ```
+        Description:
+            Add contact with street address 2 longer than allowed
+
+        Precondition:
+            1. Must be registered user
+            2. Must be logged in
+
+        Test Data:
+            First name: Bob
+            Last name: Marley
+            Street Address 2: agsdgasdg jasdgju asbdgasd ibgasiugiua sibdugbi absidguiuais duigasui dgiuasd iugui 1
+
+        Steps:
+            1. Go to https://thinking-tester-contact-list.herokuapp.com/contactList
+            2. Click "Add a New Contact" button
+            3. Enter First name
+            4. Enter Last name
+            5. Enter Street Address 2
+            6. Click submit button
+            7. Observe the contact list
+
+        Expected result:
+            Street Address 2 validation input error visible
+        ```
+    * TC_5.3.13a Add contact with street address 2 shorter than allowed
+        ```
+        Description:
+            Add contact with street address 2 shorter than allowed
+
+        Precondition:
+            1. Must be registered user
+            2. Must be logged in
+
+        Test Data:
+            First name: Bob
+            Last name: Marley
+            Street Address 2: 1
+
+        Steps:
+            1. Go to https://thinking-tester-contact-list.herokuapp.com/contactList
+            2. Click "Add a New Contact" button
+            3. Enter First name
+            4. Enter Last name
+            5. Enter Street Address 2
+            6. Click submit button
+            7. Observe the contact list
+
+        Expected result:
+            Street Address 2 validation input error visible
+        ```
+    * TC_5.3.14 Add contact with state longer than allowed
+        ```
+        Description:
+            Add contact with state longer than allowed
+
+        Precondition:
+            1. Must be registered user
+            2. Must be logged in
+
+        Test Data:
+            First name: Bob
+            Last name: Marley
+            State: Californianianianianianianianianianianianiania
+
+        Steps:
+            1. Go to https://thinking-tester-contact-list.herokuapp.com/contactList
+            2. Click "Add a New Contact" button
+            3. Enter First name
+            4. Enter Last name
+            5. Enter State
+            6. Click submit button
+            7. Observe the contact list
+
+        Expected result:
+            State validation input error visible
+        ```
+    * TC_5.3.14a Add contact with state shorter than allowed
+        ```
+        Description:
+            Add contact with state shorter than allowed
+
+        Precondition:
+            1. Must be registered user
+            2. Must be logged in
+
+        Test Data:
+            First name: Bob
+            Last name: Marley
+            State: C
+
+        Steps:
+            1. Go to https://thinking-tester-contact-list.herokuapp.com/contactList
+            2. Click "Add a New Contact" button
+            3. Enter First name
+            4. Enter Last name
+            5. Enter State
+            6. Click submit button
+            7. Observe the contact list
+
+        Expected result:
+            State validation input error visible
+        ```
+    * TC_5.3.15a Add contact with city longer than allowed
+        ```
+        Description:
+            Add contact with city longer than allowed
+
+        Precondition:
+            1. Must be registered user
+            2. Must be logged in
+
+        Test Data:
+            First name: Bob
+            Last name: Marley
+            City: Los Angeleslesleslesleslesleslesleslesleslesleslesleslesles
+
+        Steps:
+            1. Go to https://thinking-tester-contact-list.herokuapp.com/contactList
+            2. Click "Add a New Contact" button
+            3. Enter First name
+            4. Enter Last name
+            5. Enter City
+            6. Click submit button
+            7. Observe the contact list
+
+        Expected result:
+            City validation input error visible
+        ```
+    * TC_5.3.15b Add contact with city shorter than allowed
+        ```
+        Description:
+            Add contact with city shorter than allowed
+
+        Precondition:
+            1. Must be registered user
+            2. Must be logged in
+
+        Test Data:
+            First name: Bob
+            Last name: Marley
+            City: L
+
+        Steps:
+            1. Go to https://thinking-tester-contact-list.herokuapp.com/contactList
+            2. Click "Add a New Contact" button
+            3. Enter First name
+            4. Enter Last name
+            5. Enter City
+            6. Click submit button
+            7. Observe the contact list
+
+        Expected result:
+            City validation input error visible
+        ```
+    * TC_5.3.16 Add contact with invalid post code
+        ```
+        Description:
+            Add contact with invalid post code
+
+        Precondition:
+            1. Must be registered user
+            2. Must be logged in
+
+        Test Data:
+            First name: Bob
+            Last name: Marley
+            Postal Code: AAAAAAA
+
+        Steps:
+            1. Go to https://thinking-tester-contact-list.herokuapp.com/contactList
+            2. Click "Add a New Contact" button
+            3. Enter First name
+            4. Enter Last name
+            5. Enter Postal Code
+            6. Click submit button
+            7. Observe the contact list
+
+        Expected result:
+            Postal Code validation input error visible
+        ```
+    * TC_5.3.17a Add contact with country longer than allowed
+        ```
+        Description:
+            Add contact with country longer than allowed
+
+        Precondition:
+            1. Must be registered user
+            2. Must be logged in
+
+        Test Data:
+            First name: Bob
+            Last name: Marley
+            Country: United States States States States States States States States
+
+        Steps:
+            1. Go to https://thinking-tester-contact-list.herokuapp.com/contactList
+            2. Click "Add a New Contact" button
+            3. Enter First name
+            4. Enter Last name
+            5. Enter Country
+            6. Click submit button
+            7. Observe the contact list
+
+        Expected result:
+            Country validation input error visible
+        ```
+    * TC_5.3.17b Add contact with country shorter than allowed
+        ```
+        Description:
+            Add contact with country shorter than allowed
+
+        Precondition:
+            1. Must be registered user
+            2. Must be logged in
+
+        Test Data:
+            First name: Bob
+            Last name: Marley
+            Country: U
+
+        Steps:
+            1. Go to https://thinking-tester-contact-list.herokuapp.com/contactList
+            2. Click "Add a New Contact" button
+            3. Enter First name
+            4. Enter Last name
+            5. Enter Country
+            6. Click submit button
+            7. Observe the contact list
+
+        Expected result:
+            Country validation input error visible
+        ```
 
 ### TS_7 Edit Contact
 * TC_7.1 Edit contact with valid data, first name and last name only
