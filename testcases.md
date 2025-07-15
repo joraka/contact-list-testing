@@ -964,7 +964,7 @@
         Expected result:
             Phone validation input error visible
         ```
-    * TC_5.3.12 Add contact with street address 1 longer than allowed
+    * TC_5.3.12a Add contact with street address 1 longer than allowed
         ```
         Description:
             Add contact with street address 1 longer than allowed
@@ -990,7 +990,7 @@
         Expected result:
             Street Address 1 validation input error visible
         ```
-    * TC_5.3.12a Add contact with street address 1 shorter than allowed
+    * TC_5.3.12b Add contact with street address 1 shorter than allowed
         ```
         Description:
             Add contact with street address 1 shorter than allowed
@@ -1016,7 +1016,7 @@
         Expected result:
             Street Address 1 validation input error visible
         ```
-    * TC_5.3.13 Add contact with street address 2 longer than allowed
+    * TC_5.3.13a Add contact with street address 2 longer than allowed
         ```
         Description:
             Add contact with street address 2 longer than allowed
@@ -1042,7 +1042,7 @@
         Expected result:
             Street Address 2 validation input error visible
         ```
-    * TC_5.3.13a Add contact with street address 2 shorter than allowed
+    * TC_5.3.13b Add contact with street address 2 shorter than allowed
         ```
         Description:
             Add contact with street address 2 shorter than allowed
@@ -1068,7 +1068,7 @@
         Expected result:
             Street Address 2 validation input error visible
         ```
-    * TC_5.3.14 Add contact with state longer than allowed
+    * TC_5.3.14a Add contact with state longer than allowed
         ```
         Description:
             Add contact with state longer than allowed
@@ -1094,7 +1094,7 @@
         Expected result:
             State validation input error visible
         ```
-    * TC_5.3.14a Add contact with state shorter than allowed
+    * TC_5.3.14b Add contact with state shorter than allowed
         ```
         Description:
             Add contact with state shorter than allowed
@@ -1253,27 +1253,472 @@
 
 ### TS_7 Edit Contact
 * TC_7.1 Edit contact with valid data, first name and last name only
+    ```
+    Description:
+        Edit contact with valid data, first name and last name only
+
+    Precondition:
+        1. Must be registered user
+        2. Must be logged in
+        3. Must have at least one contact
+
+    Test Data:
+        First name: Andrew
+        Last name: Anderson
+
+    Steps:
+        1. Go to https://thinking-tester-contact-list.herokuapp.com/contactList
+        2. Click on first contact
+        3. Click "Edit Contact" button
+        4. Enter first name
+        5. Enter last name
+        6. Click submit button
+        7. Observe the contact list
+
+    Expected result:
+        Contact was updated with new data
+    ```
 * TC_7.2 Edit contact with valid data with all fields
+    ```
+    Description:
+        Edit contact with valid data with all fields
+
+    Precondition:
+        1. Must be registered user
+        2. Must be logged in
+        3. Must have at least one contact
+
+    Test Data:
+        First name: Andrew
+        Last name: Anderson
+        Date of Birth: 1995-05-15
+        Email: andrew@anderson.com
+        Phone: 555123456
+        Street Address 1: Andrew Anderson street 1
+        Street Address 2: 456
+        City: New York
+        State or Province: New York
+        Postal Code: 10001
+        Country: United States
+
+    Steps:
+        1. Go to https://thinking-tester-contact-list.herokuapp.com/contactList
+        2. Click on first contact
+        3. Click "Edit Contact" button
+        4. Enter First name
+        5. Enter Last name
+        6. Enter Date of Birth
+        7. Enter Email
+        8. Enter Phone
+        9. Enter Street Address 1
+        10. Enter Street Address 2
+        11. Enter City
+        12. Enter State or Province
+        13. Enter Postal Code
+        14. Enter Country
+        15. Click submit button
+        16. Observe the contact list
+
+    Expected result:
+        Contact was updated with new data matching the input
+    ```
 * TC_7.3 Edit contact with invalid data
     * TC_7.3.1 Edit contact with empty first name
+        ```
+        Description:
+            Edit contact with empty first name
+
+        Precondition:
+            1. Must be registered user
+            2. Must be logged in
+            3. Must have at least one contact
+
+        Steps:
+            1. Go to https://thinking-tester-contact-list.herokuapp.com/contactList
+            2. Click on first contact
+            3. Click "Edit Contact" button
+            4. Clear first name field
+            5. Click submit button
+            6. Observe the result
+
+        Expected result:
+            First name validation input error visible
+        ```
     * TC_7.3.2 Edit contact with first name longer than allowed
+        ```
+        Description:
+            Edit contact with first name longer than allowed
+
+        Precondition:
+            1. Must be registered user
+            2. Must be logged in
+            3. Must have at least one contact
+
+        Test Data:
+            First name: Andrewdrewdrewdrewdrewdrewdrewdrewdrew
+
+        Steps:
+            1. Go to https://thinking-tester-contact-list.herokuapp.com/contactList
+            2. Click on first contact
+            3. Click "Edit Contact" button
+            4. Enter First name
+            5. Click submit button
+            6. Observe the result
+
+        Expected result:
+            First name validation input error visible
+        ```
     * TC_7.3.3 Edit contact with first name and numbers
+        ```
+        Description:
+            Edit contact with first name that has numbers
+
+        Precondition:
+            1. Must be registered user
+            2. Must be logged in
+            3. Must have at least one contact
+
+        Test Data:
+            First name: Andrew123
+
+        Steps:
+            1. Go to https://thinking-tester-contact-list.herokuapp.com/contactList
+            2. Click on first contact
+            3. Click "Edit Contact" button
+            4. Enter First name
+            5. Click submit button
+            6. Observe the result
+
+        Expected result:
+            First name validation input error visible
+        ```
     * TC_7.3.4 Edit contact with empty last name
+        ```
+        Description:
+            Edit contact with empty last name
+
+        Precondition:
+            1. Must be registered user
+            2. Must be logged in
+            3. Must have at least one contact
+
+        Steps:
+            1. Go to https://thinking-tester-contact-list.herokuapp.com/contactList
+            2. Click on first contact
+            3. Click "Edit Contact" button
+            4. Clear last name field
+            5. Click submit button
+            6. Observe the result
+
+        Expected result:
+            Last name validation input error visible
+        ```
     * TC_7.3.5 Edit contact with last name longer than allowed
+        ```
+        Description:
+            Edit contact with last name longer than allowed
+
+        Precondition:
+            1. Must be registered user
+            2. Must be logged in
+            3. Must have at least one contact
+
+        Test Data:
+            Last name: Andersonsonsonsonsonsonsonsonsonson
+
+        Steps:
+            1. Go to https://thinking-tester-contact-list.herokuapp.com/contactList
+            2. Click on first contact
+            3. Click "Edit Contact" button
+            4. Enter Last name
+            5. Click submit button
+            6. Observe the result
+
+        Expected result:
+            Last name validation input error visible
+        ```
     * TC_7.3.6 Edit contact with last name and numbers
+        ```
+        Description:
+            Edit contact with last name that has numbers in it
+
+        Precondition:
+            1. Must be registered user
+            2. Must be logged in
+            3. Must have at least one contact
+
+        Test Data:
+            Last name: Anderson123
+
+        Steps:
+            1. Go to https://thinking-tester-contact-list.herokuapp.com/contactList
+            2. Click on first contact
+            3. Click "Edit Contact" button
+            4. Enter Last name
+            5. Click submit button
+            6. Observe the result
+
+        Expected result:
+            Last name validation input error visible
+        ```
     * TC_7.3.7 Edit contact with invalid date of birth format
+        ```
+        Description:
+            Edit contact with invalid date of birth format
+
+        Precondition:
+            1. Must be registered user
+            2. Must be logged in
+            3. Must have at least one contact
+
+        Test Data:
+            Date of Birth: 1995-25-40
+
+        Steps:
+            1. Go to https://thinking-tester-contact-list.herokuapp.com/contactList
+            2. Click on first contact
+            3. Click "Edit Contact" button
+            4. Enter Date of Birth
+            5. Click submit button
+            6. Observe the result
+
+        Expected result:
+            Date of birth validation input error visible
+        ```
     * TC_7.3.8 Edit contact with email longer than allowed
-    * TC_7.3.9 Edit contact with invalid email format 
+        ```
+        Description:
+            Edit contact with email longer than allowed
+
+        Precondition:
+            1. Must be registered user
+            2. Must be logged in
+            3. Must have at least one contact
+
+        Test Data:
+            Email: andrewandrewandrewandrewandrewandrewandrewandrewandrewandrewandrew@anderson.com
+
+        Steps:
+            1. Go to https://thinking-tester-contact-list.herokuapp.com/contactList
+            2. Click on first contact
+            3. Click "Edit Contact" button
+            4. Enter Email
+            5. Click submit button
+            6. Observe the result
+
+        Expected result:
+            Email validation input error visible
+        ```
+    * TC_7.3.9 Edit contact with invalid email format
+        ```
+        Description:
+            Edit contact with invalid email format
+
+        Precondition:
+            1. Must be registered user
+            2. Must be logged in
+            3. Must have at least one contact
+
+        Test Data:
+            Email: andrew.anderson.com
+
+        Steps:
+            1. Go to https://thinking-tester-contact-list.herokuapp.com/contactList
+            2. Click on first contact
+            3. Click "Edit Contact" button
+            4. Enter Email
+            5. Click submit button
+            6. Observe the result
+
+        Expected result:
+            Email validation input error visible
+        ```
     * TC_7.3.10 Edit contact with phone number longer than allowed
+        ```
+        Description:
+            Edit contact with phone number longer than allowed
+
+        Precondition:
+            1. Must be registered user
+            2. Must be logged in
+            3. Must have at least one contact
+
+        Test Data:
+            Phone: 555123456555123456555123456
+
+        Steps:
+            1. Go to https://thinking-tester-contact-list.herokuapp.com/contactList
+            2. Click on first contact
+            3. Click "Edit Contact" button
+            4. Enter Phone
+            5. Click submit button
+            6. Observe the result
+
+        Expected result:
+            Phone validation input error visible
+        ```
     * TC_7.3.11 Edit contact with street address 1 longer than allowed
+        ```
+        Description:
+            Edit contact with street address 1 longer than allowed
+
+        Precondition:
+            1. Must be registered user
+            2. Must be logged in
+            3. Must have at least one contact
+
+        Test Data:
+            Street Address 1: Andrew Anderson street that is extremely long and exceeds the maximum allowed length for this field
+
+        Steps:
+            1. Go to https://thinking-tester-contact-list.herokuapp.com/contactList
+            2. Click on first contact
+            3. Click "Edit Contact" button
+            4. Enter Street Address 1
+            5. Click submit button
+            6. Observe the result
+
+        Expected result:
+            Street Address 1 validation input error visible
+        ```
     * TC_7.3.12 Edit contact with street address 2 longer than allowed
+        ```
+        Description:
+            Edit contact with street address 2 longer than allowed
+
+        Precondition:
+            1. Must be registered user
+            2. Must be logged in
+            3. Must have at least one contact
+
+        Test Data:
+            Street Address 2: Andrew Anderson street that is extremely long and exceeds the maximum allowed length for this field
+
+        Steps:
+            1. Go to https://thinking-tester-contact-list.herokuapp.com/contactList
+            2. Click on first contact
+            3. Click "Edit Contact" button
+            4. Enter Street Address 2
+            5. Click submit button
+            6. Observe the result
+
+        Expected result:
+            Street Address 2 validation input error visible
+        ```
     * TC_7.3.13 Edit contact with state longer than allowed
+        ```
+        Description:
+            Edit contact with state longer than allowed
+
+        Precondition:
+            1. Must be registered user
+            2. Must be logged in
+            3. Must have at least one contact
+
+        Test Data:
+            State: New Yorkyorkyorkyorkyorkyorkyorkyorkyorkyorkyorkyorkyorkyork
+
+        Steps:
+            1. Go to https://thinking-tester-contact-list.herokuapp.com/contactList
+            2. Click on first contact
+            3. Click "Edit Contact" button
+            4. Enter State
+            5. Click submit button
+            6. Observe the result
+
+        Expected result:
+            State validation input error visible
+        ```
     * TC_7.3.14 Edit contact with city longer than allowed
+        ```
+        Description:
+            Edit contact with city longer than allowed
+
+        Precondition:
+            1. Must be registered user
+            2. Must be logged in
+            3. Must have at least one contact
+
+        Test Data:
+            City: New Yorkyorkyorkyorkyorkyorkyorkyorkyorkyorkyorkyorkyorkyork
+
+        Steps:
+            1. Go to https://thinking-tester-contact-list.herokuapp.com/contactList
+            2. Click on first contact
+            3. Click "Edit Contact" button
+            4. Enter City
+            5. Click submit button
+            6. Observe the result
+
+        Expected result:
+            City validation input error visible
+        ```
     * TC_7.3.15 Edit contact with invalid post code
+        ```
+        Description:
+            Edit contact with invalid post code
+
+        Precondition:
+            1. Must be registered user
+            2. Must be logged in
+            3. Must have at least one contact
+
+        Test Data:
+            Postal Code: ABCDEFG
+
+        Steps:
+            1. Go to https://thinking-tester-contact-list.herokuapp.com/contactList
+            2. Click on first contact
+            3. Click "Edit Contact" button
+            4. Enter Postal Code
+            5. Click submit button
+            6. Observe the result
+
+        Expected result:
+            Postal Code validation input error visible
+        ```
     * TC_7.3.16 Edit contact with country longer than allowed
+        ```
+        Description:
+            Edit contact with country longer than allowed
+
+        Precondition:
+            1. Must be registered user
+            2. Must be logged in
+            3. Must have at least one contact
+
+        Test Data:
+            Country: United States of America of America of America of America of America
+
+        Steps:
+            1. Go to https://thinking-tester-contact-list.herokuapp.com/contactList
+            2. Click on first contact
+            3. Click "Edit Contact" button
+            4. Enter Country
+            5. Click submit button
+            6. Observe the result
+
+        Expected result:
+            Country validation input error visible
+        ```
 
 ### TS_8 Delete Contact
 * TC_8.1 Delete contact
+    ```
+    Description:
+        Delete contact
 
-### TS_9 Edge cases
-* add contact page shouldnt be displayed
+    Precondition:
+        1. Must be registered user
+        2. Must be logged in
+        3. Must have at least one contact
+
+    Steps:
+        1. Go to https://thinking-tester-contact-list.herokuapp.com/contactList
+        2. Click on first contact
+        3. Click "Delete Contact" button
+        4. Observe the result
+
+    Expected result:
+        Contact is deleted
+    ```
