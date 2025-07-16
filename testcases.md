@@ -552,7 +552,7 @@
         3. "Return to Contact List" button is visible
     ```
 ### TS_6 Add contact
-* TC_5.1 Add contact with valid data, first name and last name only
+* TC_6.1 Add contact with valid data, first name and last name only
     ```
     Description:
         Add contact with valid data, first name and last name only
@@ -576,7 +576,7 @@
     Expected result:
         New contact is added to the list
     ```
-* TC_5.2 Add contact with valid data with all fields
+* TC_6.2 Add contact with valid data with all fields
     ```
     Description:
         Add contact with valid data, first name and last name only
@@ -618,8 +618,8 @@
     Expected result:
         New contact with the matching data is added to the list
     ```
-* TC_5.3 Add contact with invalid data
-    * TC_5.3.1 Add contact with empty first name
+* TC_6.3 Add contact with invalid data
+    * TC_6.3.1 Add contact with empty first name
     ```
     Description:
         Add contact with empty first name
@@ -641,7 +641,7 @@
     Expected result:
         First name validation input error visible
     ```
-    * TC_5.3.2a Add contact with first name longer than allowed
+    * TC_6.3.2a Add contact with first name longer than allowed
         ```
         Description:
             Add contact with first name longer than allowed
@@ -665,7 +665,7 @@
         Expected result:
             First name validation input error visible
         ```
-    * TC_5.3.2b Add contact with first name shorter than allowed
+    * TC_6.3.2b Add contact with first name shorter than allowed
         ```
         Description:
             Add contact with first name shorter than allowed
@@ -690,7 +690,7 @@
             First name validation input error visible
         ```
 
-    * TC_5.3.3 Add contact with first name that has numbers
+    * TC_6.3.3 Add contact with first name that has numbers
         ```
         Description:
             Add contact with first name that has numbers
@@ -714,7 +714,7 @@
         Expected result:
             First name validation input error visible
         ```
-    * TC_5.3.4 Add contact with empty last name
+    * TC_6.3.4 Add contact with empty last name
         ```
         Description:
             Add contact with empty last name
@@ -736,7 +736,7 @@
         Expected result:
             Last name validation input error visible
         ```
-    * TC_5.3.5a Add contact with last name longer than allowed
+    * TC_6.3.5a Add contact with last name longer than allowed
         ```
         Description:
             Add contact with last name longer than allowed
@@ -760,7 +760,7 @@
         Expected result:
             Last name validation input error visible
         ```
-    * TC_5.3.5b Add contact with last name shorter than allowed
+    * TC_6.3.5b Add contact with last name shorter than allowed
         ```
         Description:
             Add contact with last name shorter than allowed
@@ -784,7 +784,7 @@
         Expected result:
             Last name validation input error visible
         ```
-    * TC_5.3.6 Add contact with last name that has numbers in it
+    * TC_6.3.6 Add contact with last name that has numbers in it
         ```
         Description:
             Add contact with last name that has numbers in it
@@ -808,7 +808,7 @@
         Expected result:
             Last name validation input error visible
         ```
-    * TC_5.3.7 Add contact with invalid date of birth format
+    * TC_6.3.7 Add contact with invalid date of birth format
         ```
         Description:
             Add contact with invalid date of birth format
@@ -834,7 +834,7 @@
         Expected result:
             Date of birth validation input error visible
         ```
-    * TC_5.3.8 Add contact with email longer than allowed
+    * TC_6.3.8 Add contact with email longer than allowed
         ```
         Description:
             Add contact with email longer than allowed
@@ -860,7 +860,7 @@
         Expected result:
             Email validation input error visible
         ```
-    * TC_5.3.9 Add contact with invalid email format 
+    * TC_6.3.9 Add contact with invalid email format 
         ```
         Description:
             Add contact with invalid email format
@@ -886,7 +886,7 @@
         Expected result:
             Email validation input error visible
         ```
-    * TC_5.3.10a Add contact with phone number longer than allowed
+    * TC_6.3.10a Add contact with phone number longer than allowed
         ```
         Description:
             Add contact with phone number longer than allowed
@@ -912,7 +912,7 @@
         Expected result:
             Phone validation input error visible
         ```
-    * TC_5.3.10b Add contact with phone number shorter than allowed
+    * TC_6.3.10b Add contact with phone number shorter than allowed
         ```
         Description:
             Add contact with phone number shorter than allowed
@@ -938,7 +938,7 @@
         Expected result:
             Phone validation input error visible
         ```
-    * TC_5.3.11 Add contact with phone number shorter than allowed
+    * TC_6.3.11 Add contact with phone number shorter than allowed
         ```
         Description:
             Add contact with phone number shorter than allowed
@@ -964,7 +964,7 @@
         Expected result:
             Phone validation input error visible
         ```
-    * TC_5.3.12a Add contact with street address 1 longer than allowed
+    * TC_6.3.12a Add contact with street address 1 longer than allowed
         ```
         Description:
             Add contact with street address 1 longer than allowed
@@ -990,7 +990,7 @@
         Expected result:
             Street Address 1 validation input error visible
         ```
-    * TC_5.3.12b Add contact with street address 1 shorter than allowed
+    * TC_6.3.12b Add contact with street address 1 shorter than allowed
         ```
         Description:
             Add contact with street address 1 shorter than allowed
@@ -1016,7 +1016,7 @@
         Expected result:
             Street Address 1 validation input error visible
         ```
-    * TC_5.3.13a Add contact with street address 2 longer than allowed
+    * TC_6.3.13a Add contact with street address 2 longer than allowed
         ```
         Description:
             Add contact with street address 2 longer than allowed
@@ -1042,7 +1042,7 @@
         Expected result:
             Street Address 2 validation input error visible
         ```
-    * TC_5.3.13b Add contact with street address 2 shorter than allowed
+    * TC_6.3.13b Add contact with street address 2 shorter than allowed
         ```
         Description:
             Add contact with street address 2 shorter than allowed
@@ -1068,7 +1068,7 @@
         Expected result:
             Street Address 2 validation input error visible
         ```
-    * TC_5.3.14a Add contact with state longer than allowed
+    * TC_6.3.14a Add contact with state longer than allowed
         ```
         Description:
             Add contact with state longer than allowed
@@ -1094,7 +1094,7 @@
         Expected result:
             State validation input error visible
         ```
-    * TC_5.3.14b Add contact with state shorter than allowed
+    * TC_6.3.14b Add contact with state shorter than allowed
         ```
         Description:
             Add contact with state shorter than allowed
@@ -1120,7 +1120,7 @@
         Expected result:
             State validation input error visible
         ```
-    * TC_5.3.15a Add contact with city longer than allowed
+    * TC_6.3.15a Add contact with city longer than allowed
         ```
         Description:
             Add contact with city longer than allowed
@@ -1146,7 +1146,7 @@
         Expected result:
             City validation input error visible
         ```
-    * TC_5.3.15b Add contact with city shorter than allowed
+    * TC_6.3.15b Add contact with city shorter than allowed
         ```
         Description:
             Add contact with city shorter than allowed
@@ -1172,7 +1172,7 @@
         Expected result:
             City validation input error visible
         ```
-    * TC_5.3.16 Add contact with invalid post code
+    * TC_6.3.16 Add contact with invalid post code
         ```
         Description:
             Add contact with invalid post code
@@ -1198,7 +1198,7 @@
         Expected result:
             Postal Code validation input error visible
         ```
-    * TC_5.3.17a Add contact with country longer than allowed
+    * TC_6.3.17a Add contact with country longer than allowed
         ```
         Description:
             Add contact with country longer than allowed
@@ -1224,7 +1224,7 @@
         Expected result:
             Country validation input error visible
         ```
-    * TC_5.3.17b Add contact with country shorter than allowed
+    * TC_6.3.17b Add contact with country shorter than allowed
         ```
         Description:
             Add contact with country shorter than allowed

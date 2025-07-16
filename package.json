@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "start": "npm run cy:open"
   },
   "repository": {
     "type": "git",
@@ -17,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/joraka/contact-list-testing/issues"
   },
-  "homepage": "https://github.com/joraka/contact-list-testing#readme"
+  "homepage": "https://github.com/joraka/contact-list-testing#readme",
+  "devDependencies": {
+    "cypress": "^14.5.2"
+  }
 }
