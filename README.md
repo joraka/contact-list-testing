@@ -5,9 +5,11 @@
 
 
 
-# 🧪 Contact List App Cypress Testing
+# Contact List App Cypress Testing
 
-This project contains automated end-to-end tests for the [Contact List App](https://thinking-tester-contact-list.herokuapp.com/) using Cypress. 🧪
+This project contains automated end-to-end tests for the [Contact List App](https://thinking-tester-contact-list.herokuapp.com/) using Cypress.
+
+---
 
 ### 🛠️ Prerequisites
 
@@ -39,8 +41,8 @@ This project contains automated end-to-end tests for the [Contact List App](http
 
 ## 📚 Additional Documentation
 
-- [testcases.md - Test Cases Documentation](./testcases.md) 📝
-- [workflow.md - Project Workflow Guide](./workflow.md) 🔄
+- [testcases.md - Test Cases Documentation](./testcases.md)
+- [workflow.md - Project Workflow Guide](./workflow.md)
 
 ## 📝 License
 
