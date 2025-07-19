@@ -1,6 +1,12 @@
 /// <reference types="cypress" />
 
+import HomePage from "./homePage";
+
+import { generateEmail } from "../support/dataGenerator";
+
 class RegistrationPage {
+  registrationPath = "/addUser";
+
   getFirstNameField() {
     return cy.get("#add-user #firstName");
   }
@@ -23,6 +29,35 @@ class RegistrationPage {
 
   getCancelButton() {
     return cy.get("button#cancel");
+  }
+
+  getError() {
+    return cy.get("span#error");
+  }
+
+  registerUserIfDoesntExist(user) {
+    cy.url().then((lastPageUrl) => {
+      if (!user) {
+        user = {
+          firstName: "Bob",
+          lastName: "Marley",
+          email: generateEmail(),
+          password: "pass123",
+        };
+      }
+
+      cy.visit(this.registrationPath);
+      this.getFirstNameField().type(user.firstName);
+      this.getLastNameField().type(user.lastName);
+      this.getEmailField().type(user.email);
+      this.getPasswordField().type(user.password, { parseSpecialCharSequences: false });
+      cy.intercept("POST", "/users").as("registerRequestInterception");
+      this.getSubmitButton().click();
+      cy.wait("@registerRequestInterception");
+      cy.clearCookies();
+
+      cy.visit(lastPageUrl);
+    });
   }
 }
 

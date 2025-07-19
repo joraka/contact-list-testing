@@ -2,30 +2,224 @@
 
 import HomePage from "../pages/homePage.js";
 import RegistrationPage from "../pages/registrationPage.js";
+import ContactsPage from "../pages/contactsPage.js";
 import { generateEmail } from "../support/dataGenerator.js";
 
 describe("TS_2 Register Page", () => {
-  const homePage = new HomePage();
-  const regPage = new RegistrationPage();
-
-  it("TC_2.1 Register with valid data", () => {
+  beforeEach(() => {
     homePage.visit();
     homePage.getSignUpButton().should("be.visible").click();
+  });
 
-    const userObj = {
-      firstName: "Bob",
-      lastName: "Marley",
-      email: generateEmail(),
-      password: "pass123",
-    };
+  const homePage = new HomePage();
+  const regPage = new RegistrationPage();
+  const contPage = new ContactsPage();
 
-    regPage.getFirstNameField().should("be.visible").type(userObj.firstName);
-    regPage.getLastNameField().should("be.visible").type(userObj.lastName);
-    regPage.getEmailField().should("be.visible").type(userObj.email);
-    regPage
-      .getPasswordField()
-      .should("be.visible")
-      .type(userObj.password, { parseSpecialCharSequences: false });
-    regPage.getSubmitButton().should("be.visible").click();
+  describe("Positive Tests", () => {
+    it("TC_2.1 Register with valid data", () => {
+      homePage.visit();
+      homePage.getSignUpButton().should("be.visible").click();
+
+      const userObj = {
+        firstName: "Bob",
+        lastName: "Marley",
+        email: generateEmail(),
+        password: "pass123",
+      };
+
+      regPage.getFirstNameField().should("be.visible").type(userObj.firstName);
+      regPage.getLastNameField().should("be.visible").type(userObj.lastName);
+      regPage.getEmailField().should("be.visible").type(userObj.email);
+      regPage
+        .getPasswordField()
+        .should("be.visible")
+        .type(userObj.password, { parseSpecialCharSequences: false });
+      regPage.getSubmitButton().should("be.visible").click();
+      contPage.getHeaderTitle().should("be.visible");
+      contPage.getAddNewContactButton().should("be.visible");
+    });
+  });
+
+  describe("Negative tests", () => {
+    it("TC_2.2.1.1 Register with empty first name", () => {
+      const userObj = {
+        lastName: "Marley",
+        email: generateEmail(),
+        password: "pass123",
+      };
+
+      regPage.getLastNameField().should("be.visible").type(userObj.lastName);
+      regPage.getEmailField().should("be.visible").type(userObj.email);
+      regPage
+        .getPasswordField()
+        .should("be.visible")
+        .type(userObj.password, { parseSpecialCharSequences: false });
+      regPage.getSubmitButton().should("be.visible").click();
+      regPage.getError().should("contain.text", "User validation failed").should("be.visible");
+    });
+
+    it("TC_2.2.1.2 Register with first name longer than allowed", () => {
+      const userObj = {
+        firstName: "Bobobobobobobobobobobobobobobobobobobobobobobob",
+        lastName: "Marley",
+        email: generateEmail(),
+        password: "pass123",
+      };
+
+      regPage.getFirstNameField().should("be.visible").type(userObj.firstName);
+      regPage.getLastNameField().should("be.visible").type(userObj.lastName);
+      regPage.getEmailField().should("be.visible").type(userObj.email);
+      regPage
+        .getPasswordField()
+        .should("be.visible")
+        .type(userObj.password, { parseSpecialCharSequences: false });
+      regPage.getSubmitButton().should("be.visible").click();
+      regPage.getError().should("contain.text", "User validation failed").should("be.visible");
+    });
+
+    it("TC_2.2.2.1 Register with empty last name", () => {
+      const userObj = {
+        firstName: "Bobobobobobobobobobobobobobobobobobobobobobobob",
+        email: generateEmail(),
+        password: "pass123",
+      };
+
+      regPage.getFirstNameField().should("be.visible").type(userObj.firstName);
+      regPage.getEmailField().should("be.visible").type(userObj.email);
+      regPage
+        .getPasswordField()
+        .should("be.visible")
+        .type(userObj.password, { parseSpecialCharSequences: false });
+      regPage.getSubmitButton().should("be.visible").click();
+      regPage.getError().should("contain.text", "User validation failed").should("be.visible");
+    });
+
+    it("TC_2.2.3.1 Register with empty email", () => {
+      const userObj = {
+        firstName: "Bob",
+        lastName: "Marley",
+        password: "pass123",
+      };
+
+      regPage.getFirstNameField().should("be.visible").type(userObj.firstName);
+      regPage.getLastNameField().should("be.visible").type(userObj.lastName);
+      regPage
+        .getPasswordField()
+        .should("be.visible")
+        .type(userObj.password, { parseSpecialCharSequences: false });
+      regPage.getSubmitButton().should("be.visible").click();
+      regPage.getError().should("contain.text", "User validation failed").should("be.visible");
+    });
+
+    it("TC_2.2.3.2 Register with email longer than allowed", () => {
+      const userObj = {
+        firstName: "Bob",
+        lastName: "Marley",
+        email: "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbob@bob.com",
+        password: "pass123",
+      };
+
+      regPage.getFirstNameField().should("be.visible").type(userObj.firstName);
+      regPage.getLastNameField().should("be.visible").type(userObj.lastName);
+      regPage.getEmailField().should("be.visible").type(userObj.email);
+      regPage
+        .getPasswordField()
+        .should("be.visible")
+        .type(userObj.password, { parseSpecialCharSequences: false });
+      regPage.getSubmitButton().should("be.visible").click();
+      regPage.getError().should("contain.text", "User validation failed").should("be.visible");
+    });
+
+    it("TC_2.2.3.3 Register with invalid email format", () => {
+      const userObj = {
+        firstName: "Bob",
+        lastName: "Marley",
+        email: "bob.bob.com",
+        password: "pass123",
+      };
+
+      regPage.getFirstNameField().should("be.visible").type(userObj.firstName);
+      regPage.getLastNameField().should("be.visible").type(userObj.lastName);
+      regPage.getEmailField().should("be.visible").type(userObj.email);
+      regPage
+        .getPasswordField()
+        .should("be.visible")
+        .type(userObj.password, { parseSpecialCharSequences: false });
+      regPage.getSubmitButton().should("be.visible").click();
+      regPage.getError().should("contain.text", "User validation failed").should("be.visible");
+    });
+
+    it("TC_2.2.3.4 Register with email that already exists", () => {
+      const userObj = {
+        firstName: "Bob",
+        lastName: "Marley",
+        email: "bobmarley123@marley.com",
+        password: "pass123",
+      };
+
+      regPage.registerUserIfDoesntExist(userObj);
+
+      regPage.getFirstNameField().should("be.visible").type(userObj.firstName);
+      regPage.getLastNameField().should("be.visible").type(userObj.lastName);
+      regPage.getEmailField().should("be.visible").type(userObj.email);
+      regPage
+        .getPasswordField()
+        .should("be.visible")
+        .type(userObj.password, { parseSpecialCharSequences: false });
+      regPage.getSubmitButton().should("be.visible").click();
+      regPage.getError().should("contain.text", "Email address is already in use").should("be.visible");
+    });
+
+    it("TC_2.2.4.1 Register with no password", () => {
+      const userObj = {
+        firstName: "Bob",
+        lastName: "Marley",
+        email: generateEmail()
+      };
+
+      regPage.getFirstNameField().should("be.visible").type(userObj.firstName);
+      regPage.getLastNameField().should("be.visible").type(userObj.lastName);
+      regPage.getEmailField().should("be.visible").type(userObj.email);
+      regPage.getSubmitButton().should("be.visible").click();
+      regPage.getError().should("contain.text", "User validation failed").should("be.visible");
+    });
+
+    it("TC_2.2.4.2 Register with password shorter than allowed", () => {
+      const userObj = {
+        firstName: "Bob",
+        lastName: "Marley",
+        email: generateEmail(),
+        password: "p",
+      };
+
+      regPage.getFirstNameField().should("be.visible").type(userObj.firstName);
+      regPage.getLastNameField().should("be.visible").type(userObj.lastName);
+      regPage.getEmailField().should("be.visible").type(userObj.email);
+      regPage
+        .getPasswordField()
+        .should("be.visible")
+        .type(userObj.password, { parseSpecialCharSequences: false });
+      regPage.getSubmitButton().should("be.visible").click();
+      regPage.getError().should("contain.text", "User validation failed").should("be.visible");
+    });
+
+    it("TC_2.2.4.3 Register with password longer than allowed", () => {
+      const userObj = {
+        firstName: "Bob",
+        lastName: "Marley",
+        email: generateEmail(),
+        password: "passpasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspass",
+      };
+
+      regPage.getFirstNameField().should("be.visible").type(userObj.firstName);
+      regPage.getLastNameField().should("be.visible").type(userObj.lastName);
+      regPage.getEmailField().should("be.visible").type(userObj.email);
+      regPage
+        .getPasswordField()
+        .should("be.visible")
+        .type(userObj.password, { parseSpecialCharSequences: false });
+      regPage.getSubmitButton().should("be.visible").click();
+      regPage.getError().should("contain.text", "User validation failed").should("be.visible");
+    });
   });
 });

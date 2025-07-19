@@ -294,7 +294,7 @@
                 First name: Bob
                 Last name: Marley
                 Email: [randomnumbers]@gmail.com
-                Password: pass
+                Password: p
 
             Steps:
                 1. Go to https://thinking-tester-contact-list.herokuapp.com/addUser
@@ -316,7 +316,7 @@
                 First name: Bob
                 Last name: Marley
                 Email: [randomnumbers]@gmail.com
-                Password: passpasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspass
+                Password: passpasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspass
 
             Steps:
                 1. Go to https://thinking-tester-contact-list.herokuapp.com/addUser
