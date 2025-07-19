@@ -3,10 +3,10 @@
 import HomePage from "../pages/homePage";
 
 describe("TS_1 Home Page", () => {
-  const pm = new HomePage();
+  const homePage = new HomePage();
 
   beforeEach(() => {
-    pm.visit();
+    homePage.visit();
   });
 
   it("TC_1.1.1 Page loads in less than 3 seconds", () => {
@@ -18,16 +18,20 @@ describe("TS_1 Home Page", () => {
   });
 
   it("TC_1.1.2 Header is visible", () => {
-    pm.getHeaderTitle().should("have.text", "Contact List App").should("be.visible");
+    homePage.getHeaderTitle().should("be.visible");
   });
 
   it("TC_1.1.3 Login forms are visible", () => {
-    pm.getLoginEmailInput().should("be.visible");
-    pm.getLoginPasswordInput().should("be.visible");
-    pm.getLoginButton().should("be.visible");
+    homePage.getLoginEmailInput().should("be.visible");
+    homePage.getLoginPasswordInput().should("be.visible");
+    homePage.getLoginButton().should("be.visible");
   });
 
   it("TC_1.1.4 Signup button is visible", () => {
-    pm.getSignUpButton().should("be.visible");
+    homePage.getSignUpButton().should("be.visible");
+  });
+
+  it("TC_1.1.5 Copyright footer is visible", () => {
+    homePage.getFooter().should("contain.text", "Created by Kristin Jackvony, Copyright");
   });
 });

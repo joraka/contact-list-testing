@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-class homePage {
+class HomePage {
   visit() {
     return cy.visit("/");
   }
@@ -21,9 +21,13 @@ class homePage {
     return cy.contains("button#submit", "Submit");
   }
 
-  getSignUpButton(){
+  getSignUpButton() {
     return cy.contains("button#signup", "Sign up");
+  }
+
+  getFooter() {
+    return cy.get("footer");
   }
 }
 
-export default homePage;
+export default HomePage;
