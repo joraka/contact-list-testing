@@ -1,8 +1,10 @@
 /// <reference types="cypress" />
 
 class HomePage {
+  urlPath = "/";
+
   visit() {
-    return cy.visit("/");
+    return cy.visit(this.urlPath);
   }
 
   getHeaderTitle() {
@@ -27,6 +29,17 @@ class HomePage {
 
   getFooter() {
     return cy.get("footer");
+  }
+
+  loginUser(email, password) {
+    this.visit();
+    this.getLoginEmailInput().type(email);
+    this.getLoginPasswordInput().type(password, { parseSpecialCharSequences: false });
+    this.getLoginButton().click();
+
+    cy.getCookie("token").then((cookie) => {
+      Cypress.env("savedToken", cookie);
+    });
   }
 }
 
