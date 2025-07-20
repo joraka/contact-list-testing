@@ -4,6 +4,7 @@
 
 # Contact List App Cypress Testing
 
+
 This project contains automated end-to-end tests for the [Contact List App](https://thinking-tester-contact-list.herokuapp.com/) using Node.js and Cypress.
 
 ### 🛠️ Prerequisites
@@ -16,9 +17,12 @@ This project contains automated end-to-end tests for the [Contact List App](http
 1. Clone this repository:
    ```bash
    git clone https://github.com/joraka/contact-list-testing.git
+   ```
+2. Go to project's directory:
+   ```bash
    cd contact-list-testing
    ```
-2. Install dependencies:
+3. Install dependencies:
    ```bash
    npm ci
    ```
@@ -41,5 +45,5 @@ This project contains automated end-to-end tests for the [Contact List App](http
 
 ## 📝 License
 
-Unlicensed  
-This project is for educational and demonstration purposes only. 🎓
+> *Unlicensed*  
+> This project is for educational and demonstration purposes only. 🎓

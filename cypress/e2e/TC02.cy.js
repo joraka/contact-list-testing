@@ -167,14 +167,17 @@ describe("TS_2 Register Page", () => {
         .should("be.visible")
         .type(userObj.password, { parseSpecialCharSequences: false });
       regPage.getSubmitButton().should("be.visible").click();
-      regPage.getError().should("contain.text", "Email address is already in use").should("be.visible");
+      regPage
+        .getError()
+        .should("contain.text", "Email address is already in use")
+        .should("be.visible");
     });
 
     it("TC_2.2.4.1 Register with no password", () => {
       const userObj = {
         firstName: "Bob",
         lastName: "Marley",
-        email: generateEmail()
+        email: generateEmail(),
       };
 
       regPage.getFirstNameField().should("be.visible").type(userObj.firstName);
@@ -208,7 +211,8 @@ describe("TS_2 Register Page", () => {
         firstName: "Bob",
         lastName: "Marley",
         email: generateEmail(),
-        password: "passpasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspass",
+        password:
+          "passpasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspass",
       };
 
       regPage.getFirstNameField().should("be.visible").type(userObj.firstName);
