@@ -1722,3 +1722,22 @@
     Expected result:
         Contact is deleted
     ```
+
+
+### TS_9 Edge Cases
+* TC_9.1 Add contact should not be visible if user is not logged in
+    ```
+    Description:
+        Add contact should not be visible if user is not logged in
+
+    Precondition:
+        1. Must be registered user
+        2. Must not be logged in
+
+    Steps:
+        1. Go to https://thinking-tester-contact-list.herokuapp.com/contactList
+        2. Observe the contact list page
+
+    Expected result:
+        "Add a New Contact" button is not visible
+    ```

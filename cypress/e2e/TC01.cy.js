@@ -32,6 +32,6 @@ describe("TS_1 Home Page", () => {
   });
 
   it("TC_1.1.5 Copyright footer is visible", () => {
-    homePage.getFooter().should("contain.text", "Created by Kristin Jackvony, Copyright");
+    homePage.getFooter().should("contain.text", "Created by Kristin Jackvony, Copyright").should("be.visible");
   });
 });
