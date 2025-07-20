@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+/// <reference path="../support/commands.d.ts" />
 
 import HomePage from "../pages/homePage";
 import RegistrationPage from "../pages/registrationPage";
@@ -15,10 +16,7 @@ describe("TS_8 Delete Contact", () => {
   });
 
   beforeEach(() => {
-    const cookie = Cypress.env("savedToken");
-    if (cookie) {
-      cy.setCookie(cookie.name, cookie.value);
-    }
+    cy.useSavedTokenCookie();
   });
 
   it("TC_8.1 Delete contact", () => {
@@ -45,7 +43,7 @@ describe("TS_8 Delete Contact", () => {
 
     cy.intercept("GET", "**/contacts").as("getContacts");
     contPage.getDeleteContactButton().should("be.visible").click();
-    cy.wait("@getContacts")
+    cy.wait("@getContacts");
     cy.contains("td", `${contactData.firstName} ${contactData.lastName}`).should("not.exist");
   });
 });
