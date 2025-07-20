@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+/// <reference path="../support/commands.d.ts" />
 
 import HomePage from "../pages/homePage";
 import RegistrationPage from "../pages/registrationPage";
@@ -23,10 +24,7 @@ describe("TS_6 Add contact", () => {
   });
 
   beforeEach(() => {
-    const cookie = Cypress.env("savedToken");
-    if (cookie) {
-      cy.setCookie(cookie.name, cookie.value);
-    }
+    cy.useSavedTokenCookie();
   });
 
   describe("Positive Tests", () => {
