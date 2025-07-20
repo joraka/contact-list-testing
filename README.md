@@ -3,9 +3,7 @@
 [![Jira 🗂️](https://img.shields.io/badge/Jira-blue?logo=jira&logoColor=white&style=for-the-badge)](https://www.atlassian.com/software/jira)
 
 # Contact List App Cypress Testing
-
-
-This project contains automated end-to-end tests for the [Contact List App](https://thinking-tester-contact-list.herokuapp.com/) using Node.js and Cypress.
+Automated end-to-end tests for the [Contact List App](https://thinking-tester-contact-list.herokuapp.com/) are implemented in this project using Node.js and Cypress. The codebase is structured using the Page Object Model (POM) for maintainability. Some tests use persistent session state to minimize run time.
 
 ### 🛠️ Prerequisites
 
@@ -38,10 +36,42 @@ This project contains automated end-to-end tests for the [Contact List App](http
   npm run cy:run
   ```
 
+## 🏗️ Project Structure
+```plaintext
+📁 contact-list-testing/  
+├── 📁 cypress/
+│   ├── 📁 e2e/            # Test cases
+│   ├── 📁 pages/          # Page Object Model (POM) classes
+│   └── 📁 support/        # Custom commands, data generators
+├── 📄 package.json        # Project dependencies and scripts
+└── 📄 cypress.config.js   # Cypress configuration
+```
+
+## 📊 Test Reporting
+
+- Cypress HTML reports are generated using Mochawesome.
+- After running tests, view the report at: `cypress/reports/index.html`
+
+## ⚙️ CI/CD Integration
+
+- Automated tests run in CI (GitHub Actions).
+- Test reports are saved as build artifacts.
+
+
+## 🤝 How to Contribute
+
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Open a pull request
+
+
 ## 📚 Additional Documentation
 
 - [testcases.md - Test Cases Documentation](./testcases.md)
 - [workflow.md - Project Workflow Guide](./workflow.md)
+- [test-case.png - Test Case Screenshot (Jira)](./jira-screenshots/test-case.png)
+- [bug-report.png - Bug Report Screenshot (Jira)](./jira-screenshots/bug-report.png)
 
 ## 📝 License
 

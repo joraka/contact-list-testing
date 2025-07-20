@@ -1731,8 +1731,7 @@
         Add contact should not be visible if user is not logged in
 
     Precondition:
-        1. Must be registered user
-        2. Must not be logged in
+        1. Must not be logged in
 
     Steps:
         1. Go to https://thinking-tester-contact-list.herokuapp.com/contactList
