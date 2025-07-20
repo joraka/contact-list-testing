@@ -114,8 +114,7 @@ describe("TS_6 Add contact", () => {
       };
       contPage.visit();
       contPage.getAddNewContactButton().should("be.visible").click();
-      contPage.getFirstNameField().should("be.visible").clear();
-      contPage.getFirstNameField().should("be.visible").type(newContactData.firstName);
+      contPage.getFirstNameField().should("be.visible").clear().type(newContactData.firstName);
       contPage.getSubmitButton().should("be.visible").click();
       contPage.getError().should("contain.text", "Contact validation failed").should("be.visible");
     });
