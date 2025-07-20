@@ -26,8 +26,8 @@
 
 
 Cypress.Commands.add('useSavedTokenCookie', () => {
-  const token = Cypress.env('TOKEN');
+  const token = Cypress.env('savedToken');
   if (token) {
-    cy.setCookie('token', token);
+    cy.setCookie(token.name, token.value);
   }
 });
