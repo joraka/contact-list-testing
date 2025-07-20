@@ -17,21 +17,15 @@ describe("TS_6 Add contact", () => {
     password: "pass123",
   };
 
-  //   before(() => {
-  //     regPage.registerUserIfDoesntExist(regUser);
-  //     homePage.loginUser(regUser.email, regUser.password);
-  //   });
+  before(() => {
+    const user = regPage.registerUserIfDoesntExist(regUser);
+    homePage.loginUser(user.email, user.password);
+  });
 
   beforeEach(() => {
-    // const cookie = Cypress.env("savedToken");
-    const cookie = true;
-
+    const cookie = Cypress.env("savedToken");
     if (cookie) {
-      //   cy.setCookie(cookie.name, cookie.value);
-      cy.setCookie(
-        "savedToken",
-        "token_value_example"
-      );
+      cy.setCookie(cookie.name, cookie.value);
     }
   });
 
@@ -113,5 +107,29 @@ describe("TS_6 Add contact", () => {
         });
     });
   });
-  describe("Negative Tests", () => {});
+  describe("Negative Tests", () => {
+    it("TC_6.3.1 Add contact with empty first name", () => {
+      const newContactData = {
+        firstName: "Bob",
+      };
+      contPage.visit();
+      contPage.getAddNewContactButton().should("be.visible").click();
+      contPage.getFirstNameField().should("be.visible").clear();
+      contPage.getFirstNameField().should("be.visible").type(newContactData.firstName);
+      contPage.getSubmitButton().should("be.visible").click();
+      contPage.getError().should("contain.text", "Contact validation failed").should("be.visible");
+    });
+
+    it("TC_6.3.2b Add contact with first name shorter than allowed", () => {
+      const newContactData = {
+        firstName: "B",
+      };
+      contPage.visit();
+      contPage.getAddNewContactButton().should("be.visible").click();
+      contPage.getFirstNameField().should("be.visible").clear();
+      contPage.getFirstNameField().should("be.visible").type(newContactData.firstName);
+      contPage.getSubmitButton().should("be.visible").click();
+      contPage.getError().should("contain.text", "Contact validation failed").should("be.visible");
+    });
+  });
 });

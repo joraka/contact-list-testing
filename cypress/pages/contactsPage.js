@@ -7,6 +7,14 @@ class ContactsPage {
     return cy.visit(this.urlPath);
   }
 
+  getFirstContactRow() {
+    return cy.get("tr.contactTableBodyRow").first();
+  }
+
+  getEditContactButton() {
+    return cy.get("button#edit-contact");
+  }
+
   getHeaderTitle() {
     return cy.contains("header h1", "Contact List");
   }
@@ -67,11 +75,32 @@ class ContactsPage {
     return cy.get("input#country");
   }
 
+  getError() {
+    return cy.get("span#error");
+  }
+
+  getDeleteContactButton() {
+    return cy.get("button#delete");
+  }
+
   getContactRowByNameAndEmail(fullName, email) {
     return cy.get("tr.contactTableBodyRow").filter((index, row) => {
       const cells = Cypress.$(row).find("td");
-      return cells.eq(1).text().trim() === fullName && cells.eq(3).text().trim() === email;
+      return (
+        cells.eq(1).text().trim() === fullName &&
+        (email ? cells.eq(3).text().trim() === email : true)
+      );
     });
+  }
+
+  createContact(newContactData) {
+    this.visit();
+    this.getAddNewContactButton().click();
+    this.getFirstNameField().type(newContactData.firstName);
+    this.getLastNameField().type(newContactData.lastName);
+    cy.intercept("POST", "**/contacts").as("createContactRequest");
+    this.getSubmitButton().click();
+    cy.wait("@createContactRequest");
   }
 }
 

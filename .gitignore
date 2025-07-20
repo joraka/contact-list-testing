@@ -1,2 +1,4 @@
 node_modules
 notes.txt
+cypress/reports/*
+!cypress/reports/.gitkeep

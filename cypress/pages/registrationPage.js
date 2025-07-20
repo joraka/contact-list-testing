@@ -61,6 +61,8 @@ class RegistrationPage {
     if (clearCookies) {
       cy.clearCookies();
     }
+
+    return user;
   }
 }
 

@@ -33,10 +33,11 @@ class HomePage {
 
   loginUser(email, password) {
     this.visit();
+    cy.intercept('POST', '**/users/login').as('loginRequest');
     this.getLoginEmailInput().type(email);
     this.getLoginPasswordInput().type(password, { parseSpecialCharSequences: false });
     this.getLoginButton().click();
-
+    cy.wait('@loginRequest')
     cy.getCookie("token").then((cookie) => {
       Cypress.env("savedToken", cookie);
     });
