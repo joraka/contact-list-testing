@@ -2,7 +2,6 @@
 
 import HomePage from "../pages/homePage";
 import RegistrationPage from "../pages/registrationPage";
-import { generateEmail } from "../support/dataGenerator";
 import ContactsPage from "../pages/contactsPage";
 
 describe("TS_3 Login Page", () => {
@@ -14,9 +13,9 @@ describe("TS_3 Login Page", () => {
     const regUser = regPage.registerUserIfDoesntExist();
 
     homePage.visit();
-    cy.intercept('POST', '**/users/login').as('loginRequest');
     homePage.getLoginEmailInput().type(regUser.email);
     homePage.getLoginPasswordInput().type(regUser.password, { parseSpecialCharSequences: false });
+    cy.intercept('POST', '**/users/login').as('loginRequest');
     homePage.getLoginButton().click();
     cy.wait('@loginRequest')
     contPage.getHeaderTitle().should("be.visible");

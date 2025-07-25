@@ -8,7 +8,7 @@ import { generateEmail } from "../support/dataGenerator.js";
 describe("TS_2 Register Page", () => {
   beforeEach(() => {
     homePage.visit();
-    homePage.getSignUpButton().should("be.visible").click();
+    homePage.getSignUpButton().click();
   });
 
   const homePage = new HomePage();
@@ -17,9 +17,6 @@ describe("TS_2 Register Page", () => {
 
   describe("Positive Tests", () => {
     it("TC_2.1 Register with valid data", () => {
-      homePage.visit();
-      homePage.getSignUpButton().should("be.visible").click();
-
       const user = {
         firstName: "Bob",
         lastName: "Marley",

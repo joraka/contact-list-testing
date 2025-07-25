@@ -5,6 +5,17 @@
 # Contact List App Cypress Testing
 Automated end-to-end tests for the [Contact List App](https://thinking-tester-contact-list.herokuapp.com/) are implemented in this project using Node.js and Cypress. The codebase is structured using the Page Object Model (POM) for maintainability. Some tests use persistent session state to minimize run time.
 
+**Test Coverage Summary:**
+- Home page: load speed, header, login/signup form, footer
+- Registration: valid/invalid data, field validation
+- Login: valid/invalid credentials, field validation
+- Logout: session termination
+- Contacts page: list loads, details view
+- Add contact: valid/invalid data, field validation
+- Edit contact: valid/invalid data, field validation
+- Delete contact: removal and confirmation
+- Edge cases: UI visibility and access control
+
 ### 🛠️ Prerequisites
 
 - Node.js (v16 or higher recommended)
@@ -70,8 +81,11 @@ Automated end-to-end tests for the [Contact List App](https://thinking-tester-co
 
 - [testcases.md - Test Cases Documentation](./testcases.md)
 - [workflow.md - Project Workflow Guide](./workflow.md)
-- [test-case.png - Test Case Screenshot (Jira)](./jira-screenshots/test-case.png)
-- [bug-report.png - Bug Report Screenshot (Jira)](./jira-screenshots/bug-report.png)
+
+## 🖼️ Screenshots (Jira)
+
+- [Test Case Screenshot](./jira-screenshots/test-case.png)
+- [Bug Report Screenshot](./jira-screenshots/bug-report.png)
 
 ## 📝 License
 
